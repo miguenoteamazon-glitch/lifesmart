@@ -1,0 +1,44 @@
+{
+  "tasks": [
+    {
+      "id": "ext-task-1789238359175-mfmn",
+      "source": "Telegram (@miguel)",
+      "rawText": "visitar a mis papas a las 15:00",
+      "title": "Visitar a mis papas",
+      "description": "Recibido desde Telegram (@miguel): \"visitar a mis papas a las 15:00\"",
+      "category": "familia_relaciones",
+      "type": "familia",
+      "priority": "media",
+      "status": "pendiente",
+      "estimatedHours": 1,
+      "completedHours": 0,
+      "assignedDate": "2026-09-12",
+      "dueDate": "2026-09-12",
+      "timeSlot": "15:00",
+      "createdAt": "2026-09-12",
+      "updatedAt": "2026-09-12"
+    }
+  ],
+  "ideas": [
+    {
+      "id": "ext-idea-1789238359175-isiz",
+      "source": "Telegram (@miguel)",
+      "rawText": "visitar a mis papas a las 15:00",
+      "title": "Visitar a mis papas",
+      "description": "Recibido desde Telegram (@miguel): \"visitar a mis papas a las 15:00\"",
+      "categoryId": "familia_relaciones",
+      "type": "familia",
+      "estimatedHours": 1,
+      "dailyHours": 1,
+      "finalGoal": "Fortalecer vínculos familiares y personales",
+      "isDirectTask": true,
+      "assignedDate": "2026-09-12",
+      "dueDate": "2026-09-12",
+      "timeSlot": "15:00",
+      "createdAt": "2026-09-12"
+    }
+  ],
+  "expenses": [],
+  "taskCompletions": [],
+  "habitCompletions": []
+}

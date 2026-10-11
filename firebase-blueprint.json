@@ -1,0 +1,139 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile representation",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "Life goal or task item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "priority": { "type": "string" },
+        "status": { "type": "string" },
+        "estimatedHours": { "type": "number" },
+        "completedHours": { "type": "number" },
+        "finalGoal": { "type": "string" },
+        "targetMetricValue": { "type": "number" },
+        "currentMetricValue": { "type": "number" },
+        "metricUnit": { "type": "string" },
+        "assignedDate": { "type": "string" },
+        "timeSlot": { "type": "string" },
+        "tags": { "type": "array" },
+        "subgoals": { "type": "array" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "image": { "type": "string" }
+      },
+      "required": ["id", "userId", "title", "category", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "#/entities/User",
+      "description": "User profile documents"
+    },
+    "/tasks/{taskId}": {
+      "schema": "#/entities/Task",
+      "description": "Life goals and tasks owned by users"
+    },
+    "/ideas/{ideaId}": {
+      "schema": "#/entities/Task",
+      "description": "Ideas and quick notes"
+    },
+    "/habits/{habitId}": {
+      "schema": "#/entities/Task",
+      "description": "Habit tracking definitions and logs"
+    },
+    "/health_profiles/{profileId}": {
+      "schema": "#/entities/Task",
+      "description": "Biometric user health profile"
+    },
+    "/weight_logs/{logId}": {
+      "schema": "#/entities/Task",
+      "description": "Weight and body measurement entries"
+    },
+    "/calorie_logs/{logId}": {
+      "schema": "#/entities/Task",
+      "description": "Daily nutrition, meal and calorie tracking logs"
+    },
+    "/vehicles/{vehicleId}": {
+      "schema": "#/entities/Task",
+      "description": "Vehicle garage specifications"
+    },
+    "/vehicle_maintenances/{maintenanceId}": {
+      "schema": "#/entities/Task",
+      "description": "Vehicle maintenance service records"
+    },
+    "/medical_appointments/{appointmentId}": {
+      "schema": "#/entities/Task",
+      "description": "Medical appointments calendar"
+    },
+    "/medical_exam_notes/{examNoteId}": {
+      "schema": "#/entities/Task",
+      "description": "Medical exam notes and clinical logs"
+    },
+    "/family_trips/{tripId}": {
+      "schema": "#/entities/Task",
+      "description": "Family trip planners and budget goals"
+    },
+    "/media_backlog/{mediaId}": {
+      "schema": "#/entities/Task",
+      "description": "Entertainment media watchlist items"
+    },
+    "/game_backlog/{gameId}": {
+      "schema": "#/entities/Task",
+      "description": "Video game backlog and status"
+    },
+    "/media_reviews/{reviewId}": {
+      "schema": "#/entities/Task",
+      "description": "Media 5-star reviews and watched log"
+    },
+    "/monthly_bills/{billId}": {
+      "schema": "#/entities/Task",
+      "description": "Monthly fixed payment schedule items"
+    },
+    "/monthly_incomes/{incomeId}": {
+      "schema": "#/entities/Task",
+      "description": "Monthly income and payment records"
+    },
+    "/monthly_extra_expenses/{extraId}": {
+      "schema": "#/entities/Task",
+      "description": "Monthly extra/unexpected expense items"
+    },
+    "/debts/{debtId}": {
+      "schema": "#/entities/Task",
+      "description": "Debts, loans, amortizations and payment records"
+    },
+    "/books/{bookId}": {
+      "schema": "#/entities/Task",
+      "description": "User personal library books"
+    },
+    "/reading_quotes/{quoteId}": {
+      "schema": "#/entities/Task",
+      "description": "Book quotes and memorable reflections"
+    },
+    "/smart_purchases/{purchaseId}": {
+      "schema": "#/entities/Task",
+      "description": "Smart purchases wishlist, planned shopping and purchased items"
+    },
+    "/annual_goals/{goalId}": {
+      "schema": "#/entities/Task",
+      "description": "Annual strategic goals and quarterly milestones"
+    }
+  }
+}

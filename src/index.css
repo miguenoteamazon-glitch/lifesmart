@@ -1,0 +1,394 @@
+@import "tailwindcss";
+
+@keyframes heroQuoteFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-hero-quote {
+  animation: heroQuoteFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   SMOOTH THEME TRANSITION
+   ========================================================================== */
+html, body {
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   SCROLLBAR UTILITY HELPERS
+   ========================================================================== */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   LIGHT MODE DESIGN SYSTEM & ULTRA HIGH-CONTRAST BANNERS & CARDS
+   ========================================================================== */
+html.light,
+body.light,
+.light {
+  color-scheme: light;
+  background-color: #f1f5f9 !important; /* Slate 100 base */
+  color: #0f172a !important; /* Deep Slate 900 */
+}
+
+/* Base canvas background in Light Mode */
+.light .min-h-screen,
+.light.min-h-screen,
+.light .bg-\[\#0b1326\],
+.light .bg-\[\#080d1a\],
+.light .bg-\[\#0f172a\] {
+  background-color: #f1f5f9 !important;
+}
+
+/* ==========================================================================
+   HERO BANNERS, AGENT BANNERS & CATEGORY BANNERS ADAPTATION FOR LIGHT MODE
+   ========================================================================== */
+
+/* 1. Main Hero Carousel Banner in Light Mode */
+.light .bg-gradient-to-br.from-\[\#151f38\].via-\[\#10172b\].to-\[\#0b1222\],
+.light .bg-gradient-to-br.from-\[\#151f38\],
+.light .bg-gradient-to-r.from-\[\#0b1326\] {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 60%, #eff6ff 100%) !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Fix Hero Banner Background Overlay & Shadows */
+.light .bg-gradient-to-r.from-\[\#0b1326\].via-\[\#0b1326\]\/80 {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.65)) !important;
+}
+
+/* Fix Hero image brightness in light mode */
+.light img.mix-blend-luminosity {
+  opacity: 0.18 !important;
+  mix-blend-mode: multiply !important;
+}
+
+/* 2. Agent Reminder Banner in Light Mode (High Contrast Crisp Style) */
+.light .border-cyan-500\/30.bg-gradient-to-r.from-\[\#0d162e\],
+.light .border-cyan-500\/30.bg-gradient-to-r,
+.light .bg-gradient-to-r.from-\[\#0d162e\].via-\[\#111e40\] {
+  background: linear-gradient(to right, #ffffff, #f0fdfa, #f0f9ff) !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.12) !important;
+}
+
+.light .border-amber-500\/40.bg-gradient-to-r.from-\[\#171424\],
+.light .bg-gradient-to-r.from-\[\#171424\].via-\[\#1f1938\] {
+  background: linear-gradient(to right, #ffffff, #fffbeb, #fef3c7) !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 10px 20px -5px rgba(217, 119, 6, 0.12) !important;
+}
+
+/* Empty Alert banner */
+.light .bg-\[\#111a33\]\/80 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 3. Category Grid Large Cards in Light Mode */
+.light .bg-\[\#121a2e\],
+.light .bg-\[\#121a2e\].group {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08) !important;
+}
+
+.light .bg-gradient-to-t.from-\[\#0b1326\].via-\[\#0b1326\]\/75 {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 55%, rgba(255, 255, 255, 0.6) 100%) !important;
+}
+
+.light .bg-\[\#121a2e\] img {
+  filter: brightness(0.9) saturate(1.2) !important;
+  opacity: 0.28 !important;
+}
+
+/* 4. Category Detail View Hero Banner in Light Mode */
+.light .bg-gradient-to-r.from-\[\#0b1326\].via-\[\#0b1326\]\/90 {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.7)) !important;
+}
+
+/* ==========================================================================
+   SURFACES & CONTAINERS IN LIGHT MODE
+   ========================================================================== */
+
+/* Primary Card Surfaces */
+.light .bg-\[\#131b2e\],
+.light .bg-\[\#121c33\],
+.light .bg-\[\#0d1627\],
+.light .bg-\[\#10192e\],
+.light .bg-slate-900,
+.light .bg-slate-900\/90,
+.light .bg-slate-900\/80,
+.light .bg-slate-900\/70,
+.light .bg-slate-950 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Secondary Panels, Sub-cards & Nested Wells */
+.light .bg-\[\#171f33\],
+.light .bg-\[\#15203b\],
+.light .bg-\[\#131f3f\],
+.light .bg-\[\#162244\],
+.light .bg-\[\#151c3d\],
+.light .bg-\[\#111933\],
+.light .bg-\[\#0d1428\],
+.light .bg-\[\#0d1428\]\/60,
+.light .bg-\[\#0b1226\],
+.light .bg-\[\#0d162e\],
+.light .bg-\[\#090f20\],
+.light .bg-\[\#0e152e\],
+.light .bg-\[\#0a0f21\],
+.light .bg-slate-800,
+.light .bg-slate-800\/90,
+.light .bg-slate-800\/80,
+.light .bg-slate-800\/60,
+.light .bg-slate-800\/50,
+.light .bg-slate-800\/40,
+.light .bg-slate-800\/30 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Header & Sticky Bars */
+.light header,
+.light .sticky.top-0,
+.light .bg-\[\#0b1326\]\/95,
+.light .bg-\[\#0b1326\]\/90,
+.light .bg-\[\#0b1326\]\/85 {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Footer */
+.light footer {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Dividers & Borders */
+.light .border-\[\#2d3449\],
+.light .border-\[\#2d3449\]\/80,
+.light .border-\[\#2d3449\]\/60,
+.light .border-\[\#2d3449\]\/50,
+.light .border-\[\#2d3449\]\/40,
+.light .border-\[\#2d3449\]\/30,
+.light .border-\[\#2d3a58\],
+.light .border-\[\#1c2947\],
+.light .border-\[\#1c2947\]\/60,
+.light .border-\[\#1a2647\],
+.light .border-\[\#1e294b\],
+.light .border-\[\#212f54\],
+.light .border-\[\#22315b\],
+.light .border-\[\#192445\],
+.light .border-\[\#1f2d52\],
+.light .border-slate-800,
+.light .border-slate-700,
+.light .border-slate-700\/60,
+.light .border-slate-700\/50,
+.light .border-slate-700\/40 {
+  border-color: #cbd5e1 !important;
+}
+
+.light .divide-\[\#2d3449\] > * + *,
+.light .divide-slate-800 > * + * {
+  border-color: #e2e8f0 !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL TYPOGRAPHY FOR HIGH READABILITY IN LIGHT MODE
+   ========================================================================== */
+
+/* Fix All Main Headings and Titles */
+.light h1, .light h2, .light h3, .light h4, .light h5, .light h6,
+.light .text-white,
+.light .text-slate-100,
+.light .text-slate-200 {
+  color: #0f172a !important; /* Deep Slate 900 */
+}
+
+/* Fix Hero Title Gradient Clashes in Light Mode */
+.light .text-2xl.font-black.text-white,
+.light .text-4xl.font-black.text-white {
+  color: #0f172a !important;
+}
+
+/* High Contrast Subtitles and Descriptions */
+.light .text-slate-300,
+.light .text-gray-300,
+.light .text-zinc-300 {
+  color: #1e293b !important; /* Slate 800 */
+}
+
+.light .text-slate-400,
+.light .text-gray-400,
+.light .text-zinc-400 {
+  color: #475569 !important; /* Slate 600 - High Contrast Readable */
+}
+
+.light .text-slate-500,
+.light .text-gray-500,
+.light .text-zinc-500 {
+  color: #64748b !important; /* Slate 500 */
+}
+
+/* Distinctive Dark Tones for Color Highlights in Light Mode */
+.light .text-cyan-200,
+.light .text-cyan-300 {
+  color: #0284c7 !important; /* Sky 600 */
+}
+
+.light .text-cyan-400,
+.light .text-\[\#00f2ff\] {
+  color: #0369a1 !important; /* Sky 700 - super clear on white */
+}
+
+.light .text-emerald-200,
+.light .text-emerald-300,
+.light .text-emerald-400 {
+  color: #047857 !important; /* Emerald 700 */
+}
+
+.light .text-amber-200,
+.light .text-amber-300,
+.light .text-amber-400 {
+  color: #b45309 !important; /* Amber 700 */
+}
+
+.light .text-indigo-200,
+.light .text-indigo-300,
+.light .text-indigo-400 {
+  color: #4338ca !important; /* Indigo 700 */
+}
+
+.light .text-purple-200,
+.light .text-purple-300,
+.light .text-purple-400 {
+  color: #7e22ce !important; /* Purple 700 */
+}
+
+.light .text-pink-200,
+.light .text-pink-300,
+.light .text-pink-400,
+.light .text-rose-200,
+.light .text-rose-300,
+.light .text-rose-400 {
+  color: #be123c !important; /* Rose 700 */
+}
+
+/* ==========================================================================
+   STAT PILLS, BADGES & INTERACTIVE BUTTONS
+   ========================================================================== */
+
+/* Hero Stat Badges in Light Mode */
+.light .bg-\[\#0b1326\]\/85,
+.light .bg-\[\#0b1326\]\/90,
+.light .bg-\[\#0b1326\]\/70 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.light .bg-\[\#0f172a\]\/70 {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Voice Idea Button in Light Mode */
+.light .bg-gradient-to-r.from-rose-500\/20.via-purple-600\/25 {
+  background: linear-gradient(to right, #fdf2f8, #faf5ff, #eef2ff) !important;
+  color: #831843 !important;
+  border-color: #f472b6 !important;
+}
+
+.light .bg-gradient-to-r.from-rose-500\/20.via-purple-600\/25 * {
+  color: #831843 !important;
+}
+
+/* Banco de Ideas button in Light Mode */
+.light .bg-\[\#131d33\]\/90 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Primary CTA Button (Crear Meta de Vida) - Keeps bright energetic punch */
+.light button.bg-\[\#00f2ff\],
+.light button.bg-gradient-to-r.from-\[\#00f2ff\] {
+  background: linear-gradient(to right, #00f2ff, #2dd4bf, #38ef7d) !important;
+  color: #00363a !important;
+  box-shadow: 0 4px 14px 0 rgba(0, 242, 255, 0.35) !important;
+}
+
+.light button.bg-\[\#00f2ff\] *,
+.light button.bg-gradient-to-r.from-\[\#00f2ff\] * {
+  color: #00363a !important;
+}
+
+/* Form inputs & selects in Light Mode */
+.light input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="submit"]):not([type="button"]),
+.light select,
+.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light input:focus,
+.light select:focus,
+.light textarea:focus {
+  border-color: #0284c7 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2) !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.light select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Modals & Dialogs in Light Mode */
+.light .fixed.inset-0.bg-black\/80,
+.light .fixed.inset-0.bg-black\/70,
+.light .fixed.inset-0.bg-black\/60,
+.light .fixed.inset-0.bg-black\/50 {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+  backdrop-filter: blur(4px);
+}
+
+.light [role="dialog"],
+.light .modal-content,
+.light .bg-\[\#131b2e\].rounded-3xl,
+.light .bg-\[\#121c33\].rounded-3xl,
+.light .bg-\[\#101729\].rounded-3xl {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}

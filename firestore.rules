@@ -1,0 +1,191 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // User profile: User can read/write their own document
+    match /users/{userId} {
+      allow read, write: if isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    // Tasks: User can read/write tasks where request.auth.uid == resource.data.userId
+    // or for creation where request.resource.data.userId == request.auth.uid
+    match /tasks/{taskId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Ideas / Collections: User can read/write ideas where request.auth.uid == resource.data.userId
+    match /ideas/{ideaId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Habits / Habit Tracker: User can read/write their own habits
+    match /habits/{habitId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || !('userId' in resource.data));
+    }
+
+    // Health Profiles: User can read/write their own biometric health profile
+    match /health_profiles/{profileId} {
+      allow get: if isAuthenticated() && (profileId == request.auth.uid || resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && (profileId == request.auth.uid || request.resource.data.userId == request.auth.uid);
+      allow update, delete: if isAuthenticated() && (profileId == request.auth.uid || resource.data.userId == request.auth.uid);
+    }
+
+    // Weight Logs: User can read/write their own weight entries
+    match /weight_logs/{logId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Daily Calorie & Nutrition Logs: User can read/write their own calorie & meal entries
+    match /calorie_logs/{logId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Vehicles: User can read/write their own vehicle records
+    match /vehicles/{vehicleId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Vehicle Maintenances: User can read/write their own vehicle maintenance entries
+    match /vehicle_maintenances/{maintenanceId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Medical Appointments: User can read/write their own medical appointments
+    match /medical_appointments/{appointmentId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Medical Exam Notes: User can read/write their own exam notes & lab orders
+    match /medical_exam_notes/{examNoteId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Family Trips & Savings: User can read/write their own travel & vacation goals
+    match /family_trips/{tripId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Entertainment: Media Backlog (Movies, Series, Anime, Documentaries)
+    match /media_backlog/{mediaId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Entertainment: Game Backlog (Video Games, Playing Status & Times)
+    match /game_backlog/{gameId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Entertainment: Media Reviews & 5-Star Ratings
+    match /media_reviews/{reviewId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Finances: Monthly Fixed Bills (Programa de Pagos Fijos)
+    match /monthly_bills/{billId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+      allow list: if isAuthenticated() && (resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+    }
+
+    // Finances: Monthly Incomes (Ingresos Quincenales y Bonificaciones)
+    match /monthly_incomes/{incomeId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+      allow list: if isAuthenticated() && (resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+    }
+
+    // Finances: Monthly Extra Expenses (Gastos Adicionales e Imprevistos)
+    match /monthly_extra_expenses/{extraId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+      allow list: if isAuthenticated() && (resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+    }
+
+    // Finances: Debts & Loans Tracker (Deudas, Préstamos y Cuotas)
+    match /debts/{debtId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+      allow list: if isAuthenticated() && (resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || !('userId' in resource.data) || resource.data.userId == 'guest');
+    }
+
+    // Learning: Personal Book Library (Libros Por Leer, Leyendo, Leídos)
+    match /books/{bookId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Learning: Reading Quotes & Reflections
+    match /reading_quotes/{quoteId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Smart Purchases & Planned Shopping Tracker
+    match /smart_purchases/{purchaseId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Annual Goals & Strategic Long-Term Milestones
+    match /annual_goals/{goalId} {
+      allow get: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow list: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+  }
+}

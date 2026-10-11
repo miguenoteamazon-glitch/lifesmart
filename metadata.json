@@ -1,0 +1,6 @@
+{
+  "name": "LifeBlocks",
+  "description": "Gestor inteligente de metas, hábitos, bloques de vida y calendario con agente recordatorio y recomendaciones con IA.",
+  "requestFramePermissions": ["microphone", "notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

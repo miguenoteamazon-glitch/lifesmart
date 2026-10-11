@@ -1,0 +1,19 @@
+{
+  "short_name": "LifeBlocks",
+  "name": "LifeBlocks: Metas, Hábitos y Vida",
+  "description": "Sistema Inteligente de Gestión de Metas, Hábitos Diarios, Salud, Garaje y Productividad con IA",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0b1326",
+  "theme_color": "#0b1326",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "lifestyle", "health"]
+}

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Background Gradient (Rich Deep Cyber Navy / Slate) -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1326" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <!-- Vibrant Cyan Gradient -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#00f2ff" />
+    </linearGradient>
+
+    <!-- Vibrant Emerald Gradient -->
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <!-- Vibrant Orange / Sunset Gradient -->
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2ff" />
+      <stop offset="50%" stop-color="#38ef7d" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base App Icon Badge (like Amazon / Apple / Modern Web Apps) -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="3" />
+
+  <!-- Glass sheen highlight -->
+  <path d="M 4 18 C 4 10 10 4 18 4 L 46 4 C 54 4 60 10 60 18 C 44 22 20 22 4 18 Z" fill="#ffffff" opacity="0.12" />
+
+  <!-- LifeBlocks Iconic Geometric Blocks (L-shaped stacking with high contrast) -->
+  <!-- Block 1: Top-Left Cyan Block (Life & Tech) -->
+  <rect x="13" y="13" width="16" height="16" rx="4.5" fill="url(#cyanGrad)" />
+  <path d="M 15 15 L 27 15 C 27.5 15 27.5 18 25 18 L 15 18 Z" fill="#ffffff" opacity="0.45" />
+
+  <!-- Block 2: Bottom-Left Emerald Block (Health & Growth) -->
+  <rect x="13" y="33" width="16" height="16" rx="4.5" fill="url(#emeraldGrad)" />
+  <path d="M 15 35 L 27 35 C 27.5 35 27.5 38 25 38 L 15 38 Z" fill="#ffffff" opacity="0.4" />
+
+  <!-- Block 3: Bottom-Right Sunset Orange Block (Action & Energy) -->
+  <rect x="33" y="33" width="16" height="16" rx="4.5" fill="url(#orangeGrad)" />
+  <path d="M 35 35 L 47 35 C 47.5 35 47.5 38 45 38 L 35 38 Z" fill="#ffffff" opacity="0.4" />
+
+  <!-- Top-Right Glowing Dynamic Spark Star (The Goal / Focus spark) -->
+  <path d="M 42 11 L 44 19 L 52 21 L 44 23 L 42 31 L 40 23 L 32 21 L 40 19 Z" fill="#00f2ff" />
+  <circle cx="42" cy="21" r="2.5" fill="#ffffff" />
+</svg>
